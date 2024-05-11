@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+struct book
+{
+    int bookid;
+    int prices;
+    int pages;
+    void assign()
+    {
+        cout<<"ID:";
+        cin>>bookid;
+        cout<<"Price:";
+        cin>>prices;
+        cout<<"Pages:";
+        cin>>pages;
+    }
+    void print()
+    {
+        cout<<"ID:"<<bookid;
+        cout<<" Price:"<<prices;
+        cout<<" Pages:"<<pages;
+    }
+};
+int main()
+{
+    int x=1;
+    int y=0;
+    int n=0;
+    cout<<"Amount of books you want to store: ";
+    cin>>n;
+    book b[n];
+    for (int i=0;i<n;i++)
+    {
+        cout<<"Data for BOOK No."<<i+1<<"\n";
+        b[i].assign();
+    }
+    while (x!=0)
+    {
+        cout<<"\nEnter 1 for searching and any other key for exit\n";
+        cin>>x;
+        switch (x)
+        {
+        case 1:
+            cout<<"Book number:";
+            cin>>y;
+            b[y-1].print();
+            break;
+        default:
+            exit(0);
+            break;
+        }
+    }
+}
