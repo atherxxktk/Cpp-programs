@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+class shape
+{
+    protected:
+        float length;
+        float radius;
+    public:
+    virtual float area()=0;
+};
+class square:public shape
+{
+public:
+    float area()
+    {
+        cout<<"Length: ";
+        cin>>length;
+        return length*length;
+    }
+};
+class cylinder:public shape
+{
+    float area()
+    {
+        cout<<"Radius: ";
+        cin>>radius;
+        return 2*3.14*radius*radius;
+    }
+};
+class circle:public shape
+{
+    float area()
+    {
+        cout<<"Radius: ";
+        cin>>radius;
+        return 3.14*radius*radius;
+    }
+};
+int main()
+{   int choice;
+    int area;
+    shape*ptr;
+    circle c;
+    cylinder c1;
+    square s;
+    cout<<"For Circle insert 1\nFor cylinder insert 2\nFor square insert 3\nTo exit insert 0\nChoice:";
+    cin>>choice;
+    switch (choice)
+    {
+        case 1:
+        ptr=&c;
+        area=ptr->area();
+        cout<<"\nArea:"<<area<<"\n";
+        break;
+        case 2:
+        ptr=&c1;
+        area=ptr->area();
+        cout<<"\nArea:"<<area<<"\n";
+        break;
+        case 3:
+        ptr=&s;
+        area=ptr->area();
+        cout<<"\nArea:"<<area<<"\n";
+        break;
+        default:
+        cout<<"invalidChoice";
+    }
+
+
+    return 0;
+}
